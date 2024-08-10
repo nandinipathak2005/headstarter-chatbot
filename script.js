@@ -3,8 +3,8 @@ const sendButton = document.querySelector("#send-button");
 const chatbox = document.querySelector(".chat-body");
 
 const adjustTextAreaHeight = () => {
-    userInput.style.height = 'auto'; // Reset height to auto to calculate scrollHeight
-    userInput.style.height = `${userInput.scrollHeight}px`; // Set height to scrollHeight
+    userInput.style.height = 'auto'; 
+    userInput.style.height = `${userInput.scrollHeight}px`; 
 };
 
 const createChatDiv = (message, className) => {
@@ -15,7 +15,7 @@ const createChatDiv = (message, className) => {
 };
 
 const generateResponse = () => {
-    // This function will be used to generate the bot's response
+   
 };
 
 const displayChat = () => {
@@ -24,7 +24,7 @@ const displayChat = () => {
 
     chatbox.appendChild(createChatDiv(userMessage, "user-message"));
     userInput.value = "";  
-    adjustTextAreaHeight(); // Adjust height after clearing the input
+    adjustTextAreaHeight(); 
     chatbox.scrollTo(0, chatbox.scrollHeight);  
 
     setTimeout(() => {

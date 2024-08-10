@@ -55,7 +55,7 @@ body {
     padding: 10px;
     background-color: #e9ecef;
     border-top: 1px solid #ccc;
-    align-items: flex-start; /* Align items to the start */
+    align-items: flex-start; 
 }
 
 #user-input {
@@ -64,15 +64,15 @@ body {
     border: 1px solid #ccc;
     border-radius: 4px;
     margin-right: 10px;
-    resize: none; /* Prevent manual resizing */
-    overflow-y: auto; /* Enable vertical scroll when needed */
-    min-height: 40px; /* Initial height */
-    max-height: 100px; /* Maximum height before scrolling */
-    box-sizing: border-box; /* Ensure padding and border are included in the height calculation */
-    width: 100%; /* Make sure it fills available space */
-    white-space: pre-wrap; /* Preserve spaces and line breaks */
-    word-wrap: break-word; /* Break long words to fit within the textarea */
-    line-height: 1.5; /* Line height for better readability */
+    resize: none; 
+    overflow-y: auto; 
+    min-height: 40px; 
+    max-height: 100px; 
+    box-sizing: border-box; 
+    width: 100%; 
+    white-space: pre-wrap; 
+    word-wrap: break-word; 
+    line-height: 1.5; 
 }
 
 #send-button {
@@ -83,7 +83,7 @@ body {
     border-radius: 4px;
     cursor: pointer;
     font-size: 14px;
-    align-self: flex-end; /* Align button to the end */
+    align-self: flex-end; 
 }
 
 #send-button:hover {
