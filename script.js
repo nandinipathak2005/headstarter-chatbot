@@ -1,37 +1,39 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chatbot Interface</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Link to the external CSS file -->
-   
-</head>
-<body bgcolor="#DEEFF5">
-    <!-- Main chat container -->
-    <div class="chat-container">
-        <!-- Header with the chatbot title -->
-        <div class="chat-header">
-            <h2>Customer Support Chatbot</h2>
-        </div>
-        
-        <!-- Body where chat messages will appear -->
-        <div class="chat-body">
-            <!-- Sample user message -->
-            
-            <!-- Sample bot response -->
-            
-            <div class="message bot-message">
-                Hi! How can I help you today?
-            </div>
-        </div>
-        
-        <!-- Footer with input field and send button -->
-        <div class="chat-footer">
-            <input type="text" id="user-input" placeholder="Type your message here..."> <!-- Input box for user messages -->
-            <button id="send-button">Send</button> <!-- Button to send the message -->
-        </div>
-    </div>
-    <script src="script.js"></script>
-</body>
-</html>
+const userInput = document.querySelector("#user-input");
+const sendButton = document.querySelector("#send-button");
+const chatbox = document.querySelector(".chat-body");
+
+const adjustTextAreaHeight = () => {
+    userInput.style.height = 'auto'; // Reset height to auto to calculate scrollHeight
+    userInput.style.height = `${userInput.scrollHeight}px`; // Set height to scrollHeight
+};
+
+const createChatDiv = (message, className) => {
+    const chatDiv = document.createElement("div");
+    chatDiv.classList.add("message", className);
+    chatDiv.innerHTML = `<p>${message}</p>`;
+    return chatDiv;
+};
+
+const generateResponse = () => {
+    // This function will be used to generate the bot's response
+};
+
+const displayChat = () => {
+    const userMessage = userInput.value.trim();
+    if (!userMessage) return;
+
+    chatbox.appendChild(createChatDiv(userMessage, "user-message"));
+    userInput.value = "";  
+    adjustTextAreaHeight(); // Adjust height after clearing the input
+    chatbox.scrollTo(0, chatbox.scrollHeight);  
+
+    setTimeout(() => {
+        chatbox.appendChild(createChatDiv("Thinking....", "bot-message"));
+        chatbox.scrollTo(0, chatbox.scrollHeight);  
+        generateResponse();
+    }, 600);
+};
+
+userInput.addEventListener("input", adjustTextAreaHeight);
+
+sendButton.addEventListener("click", displayChat);
