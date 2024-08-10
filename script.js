@@ -1,30 +1,37 @@
-const input = document.querySelector("#user-input");
-const sendButton = document.querySelector("#send-button");
-const chatbox = document.querySelector(".chat-body");
-
-const createChatDiv = (message, className) => {
-    const chatDiv = document.createElement("div");
-    chatDiv.classList.add("message", className);
-    chatDiv.innerHTML = className === "user-message"
-        ? `<p>${message}</p>`
-        : `<p>${message}</p>`;
-    return chatDiv;
-};
-
-const displayChat = () => {
-    const userMessage = input.value.trim();
-    if (!userMessage) return;
-
-    // Append the user message
-    chatbox.appendChild(createChatDiv(userMessage, "user-message"));
-    input.value = "";  // Clear the input field
-    chatbox.scrollTop = chatbox.scrollHeight;  // Scroll to the bottom
-
-    // Simulate a delay for bot response
-    setTimeout(() => {
-        chatbox.appendChild(createChatDiv("Thinking....", "bot-message"));
-        chatbox.scrollTop = chatbox.scrollHeight;  // Scroll to the bottom
-    }, 600);
-};
-
-sendButton.addEventListener("click", displayChat);
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot Interface</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to the external CSS file -->
+   
+</head>
+<body bgcolor="#DEEFF5">
+    <!-- Main chat container -->
+    <div class="chat-container">
+        <!-- Header with the chatbot title -->
+        <div class="chat-header">
+            <h2>Customer Support Chatbot</h2>
+        </div>
+        
+        <!-- Body where chat messages will appear -->
+        <div class="chat-body">
+            <!-- Sample user message -->
+            
+            <!-- Sample bot response -->
+            
+            <div class="message bot-message">
+                Hi! How can I help you today?
+            </div>
+        </div>
+        
+        <!-- Footer with input field and send button -->
+        <div class="chat-footer">
+            <input type="text" id="user-input" placeholder="Type your message here..."> <!-- Input box for user messages -->
+            <button id="send-button">Send</button> <!-- Button to send the message -->
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
